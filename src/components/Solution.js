@@ -3,16 +3,13 @@ import React, { Component } from 'react';
 
 class Solution extends Component {
     render() {
-        let underScores = []
-        for(let i=0; i< 4; i++)
-        {
-            underScores.push('_ ')
-        }
+        let myWord = this.props.solution.word.split('')
+    
         return (
             <div>
-                {underScores.map(u => <span>{u}</span>)}
+                {myWord.map(w => this.props.letterStatus[w] ? <Letter letter={w} key={w} /> : <Letter key={w} letter='_ ' />)}
                 <div>
-                    <em>Your ideal mood when coding. </em>
+                    <em>{this.props.solution.hint} </em>
                 </div>
             </div>
         )
